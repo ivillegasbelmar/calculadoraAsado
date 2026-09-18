@@ -34,3 +34,28 @@ function calcularOutput(cantidadPersonas,porcentajePicoteo){
     document.querySelector('.coal-qty').textContent = totalConsumo;
     document.querySelector('.drinks-qty').textContent = "en construccion";
 }
+
+// Función asíncrona para consultar la API
+async function obtenerDatoCurioso() {
+  const factText = document.getElementById('fact-text');
+  
+  try {
+    // Petición HTTP a la API de Random Useless Facts
+    const response = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/random?language=en');
+    
+    if (!response.ok) {
+      throw new Error('Error al conectar con la API');
+    }
+
+    const data = await response.json();
+    
+    // Inserción del texto en el DOM (data.text contiene el dato)
+    factText.textContent = `💡 Dato curioso: ${data.text}`;
+  } catch (error) {
+    console.error('Error fetching fact:', error);
+    factText.textContent = '💡 ¿Sabías que el asado sabe mejor en buena compañía?';
+  }
+}
+
+// Ejecutar la función cuando se carga la página
+document.addEventListener('DOMContentLoaded', obtenerDatoCurioso);
