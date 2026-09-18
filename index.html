@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Asado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="container">
+    <header class="header">
+      <h1>🔥 Calculadora de Asado</h1>
+      <p>Ingresa los datos para calcular las compras necesarias para tu parrilla.</p>
+    </header>
+
+    <!-- Formulario de entrada -->
+    <section class="card input-section">
+      <form id="bbq-form">
+        <div class="form-group">
+          <label for="guests">Número de personas:</label>
+          <input 
+            type="number" 
+            id="guests" 
+            name="guests" 
+            min="1" 
+            placeholder="Ej: 8" 
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="snack-percentage">% Picoteo deseado:</label>
+          <input 
+            type="number" 
+            id="snack-percentage" 
+            name="snack-percentage" 
+            min="0" 
+            max="100" 
+            placeholder="Ej: 20" 
+            value="20"
+            required
+          >
+        </div>
+
+        <button type="submit" id="btn-calculate" class="btn-primary">Calcular</button>
+      </form>
+    </section>
+
+    <!-- Sección de resultado único -->
+    <section class="results-container hidden" id="results-container">
+      <article class="card option-card" id="bbq-result">
+        <h2 class="option-title">📋 Resumen de Compras</h2>
+        
+        <div class="option-details">
+          <h3>Comida</h3>
+          <p><strong>Vacuno:</strong> <span class="beef-qty">0</span> kg</p>
+          <p><strong>Picoteo (vienesa, longanizas, malaya, palanca, etc.):</strong> <span class="snack-qty">0</span> kg</p>
+          <p><strong>Otros cortes/carnes:</strong> <span class="others-qty">0</span> kg</p>
+          
+          <hr class="divider">
+          
+          <h3>Insumos y Bebidas</h3>
+          <p><strong>Carbón necesario:</strong> <span class="coal-qty">0</span> kg</p>
+          <p><strong>Bebestibles (líquidos totales):</strong> <span class="drinks-qty">0</span> L</p>
+        </div>
+      </article>
+    </section>
+    <!-- Nuevo Pie de Página -->
+    <footer class="footer">
+      <p>Desarrollado por Ignacio Andres Villegas Belmar - Sept 2026</p>
+    </footer>
+  </main>
+
+  
+
+  <!-- Script Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>
